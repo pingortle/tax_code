@@ -1,4 +1,4 @@
-describe Value::Adjustable do
+describe TaxCode::Value::Adjustable do
   subject { described_class.new TaxCode::Value::Basic.new(value), adjustment: adjustment }
   let(:value) { 1000 }
   let(:adjustment) { 10 }

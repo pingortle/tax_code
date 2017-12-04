@@ -1,4 +1,4 @@
-describe Value::Bracketable do
+describe TaxCode::Value::Bracketable do
   subject { described_class.new TaxCode::Value::Basic.new(value), from: from, to: to }
   let(:from) { 10 }
   let(:to) { from + 10 }
