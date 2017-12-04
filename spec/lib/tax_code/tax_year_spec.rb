@@ -1,4 +1,4 @@
-describe TaxYear do
+describe TaxCode::TaxYear do
   subject { described_class.new TaxCode::Value::Basic.new(salary), brackets }
 
   let(:salary) { 1_000_000 }

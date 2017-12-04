@@ -1,6 +1,8 @@
 require 'delegate'
 
 module TaxCode
+  autoload :TaxYear, 'tax_code/tax_year'
+
   module Value
     autoload :Adjustable, 'tax_code/value/adjustable'
     autoload :Basic, 'tax_code/value/basic'
