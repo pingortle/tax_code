@@ -61,23 +61,12 @@ end
 
 class Salary
   def initialize(gross: 0)
-    raise 'gross value must be greater than or equal to zero' if gross < 0
+    raise ArgumentError, 'gross value must be greater than or equal to zero' if gross < 0
     @gross = gross
   end
 
   def value
     @gross
-  end
-end
-
-class Transform
-  def initialize(type, *params)
-    @type = type
-    @params = params
-  end
-
-  def transform(valuable)
-    @type.new valuable, *@params
   end
 end
 
@@ -96,46 +85,5 @@ class TaxYear
       @bracket_data.map do |data|
         Value::PercentBracketable.new @salary, data
       end
-    end
-end
-
-class NetIncome
-  def initialize(salary, pretaxes: [], taxables: [], taxes: [], adjustments: [])
-    @salary = salary
-    @pretaxes = pretaxes
-    @taxables = taxables
-    @taxes = taxes
-    @adjustments = adjustments
-  end
-
-  def value
-    pretax = after_deductions @salary, @pretaxes
-    tax = after_taxes pretax
-    net = after_deductions tax, @taxables
-    net.value
-  end
-
-  def print_stats
-    p '*' * 60
-    p "Net income: #{value}"
-    p "Net income/mo: #{value/12.0}"
-    p "Net income/pp: #{value/24.0}"
-    p '*' * 60
-  end
-
-  private
-    def after_deductions(salary, deductions)
-      total_deductions = deductions.reduce(0) do |memo, transform|
-        memo + salary.value - transform.transform(salary).value
-      end
-      Value::Adjustable.new salary, adjustment: -total_deductions
-    end
-
-    def after_taxes(salary)
-      adjusted_salary = after_deductions salary, @adjustments
-      total_taxes = @taxes.map do |transform|
-        transform.transform(adjusted_salary).value
-      end.reduce(:+)
-      Value::Adjustable.new salary, adjustment: -total_taxes
     end
 end
