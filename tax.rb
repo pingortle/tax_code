@@ -1,19 +1,7 @@
 require 'delegate'
+require_relative 'lib/tax_code'
 
 module Value
-  class Percentable < ::SimpleDelegator
-    def initialize(delegate, percentage:)
-      super delegate
-      @percentage = percentage
-    end
-
-    attr_reader :percentage
-
-    def value
-      super * percentage * 0.01
-    end
-  end
-
   class Bracketable < ::SimpleDelegator
     def initialize(delegate, from: 0, to:)
       raise ArgumentError, 'from must be less than to' if from >= to
@@ -44,6 +32,8 @@ module Value
   end
 
   class PercentBracketable < ::SimpleDelegator
+    include TaxCode::Value
+
     def initialize(delegate, from:, to:, percentage:)
       super Percentable.new(
         Bracketable.new(delegate, from: from, to: to),
