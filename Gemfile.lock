@@ -1,3 +1,8 @@
+PATH
+  remote: .
+  specs:
+    tax_code (0.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -29,6 +34,7 @@ PLATFORMS
 DEPENDENCIES
   rspec (~> 3.7)
   simplecov
+  tax_code!
 
 BUNDLED WITH
    1.16.0
