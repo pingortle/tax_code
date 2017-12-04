@@ -1,4 +1,4 @@
-describe Value::Basic do
+describe TaxCode::Value::Basic do
   subject { described_class.new value }
   let(:value) { 1000 }
 

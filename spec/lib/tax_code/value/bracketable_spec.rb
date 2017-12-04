@@ -1,13 +1,5 @@
-describe Value::PercentBracketable do
-  subject do
-    described_class.new Value::Basic.new(value),
-      from: from,
-      to: to,
-      percentage: percentage
-  end
-
-  let(:percentage) { 50 }
-  let(:factor) { percentage / 100.0 }
+describe Value::Bracketable do
+  subject { described_class.new TaxCode::Value::Basic.new(value), from: from, to: to }
   let(:from) { 10 }
   let(:to) { from + 10 }
   let(:size) { to - from }
@@ -46,12 +38,12 @@ describe Value::PercentBracketable do
 
     context 'with a greater value' do
       let(:value) { greater_value }
-      it { is_expected.to eq size * factor }
+      it { is_expected.to eq size }
     end
 
     context 'with a value inside the bracket' do
       let(:value) { inner_value }
-      it { is_expected.to eq inner_offset * factor }
+      it { is_expected.to eq inner_offset }
     end
   end
 end

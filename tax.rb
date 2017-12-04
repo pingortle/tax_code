@@ -1,12 +1,6 @@
 require 'delegate'
 
 module Value
-  class Basic < ::SimpleDelegator
-    def value
-      self
-    end
-  end
-
   class Percentable < ::SimpleDelegator
     def initialize(delegate, percentage:)
       super delegate

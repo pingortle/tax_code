@@ -1,5 +1,5 @@
 describe TaxYear do
-  subject { described_class.new Value::Basic.new(salary), brackets }
+  subject { described_class.new TaxCode::Value::Basic.new(salary), brackets }
 
   let(:salary) { 1_000_000 }
   let(:brackets) { [from: from, to: to, percentage: percentage] }

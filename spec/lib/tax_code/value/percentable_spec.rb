@@ -1,5 +1,5 @@
 describe Value::Percentable do
-  subject { described_class.new Value::Basic.new(value), percentage: percentage }
+  subject { described_class.new TaxCode::Value::Basic.new(value), percentage: percentage }
   let(:value) { 1000 }
   let(:percentage) { 50 }
 
