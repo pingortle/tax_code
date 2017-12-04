@@ -1,6 +1,7 @@
 require 'delegate'
 
 module TaxCode
+  autoload :Salary, 'tax_code/salary'
   autoload :TaxYear, 'tax_code/tax_year'
 
   module Value

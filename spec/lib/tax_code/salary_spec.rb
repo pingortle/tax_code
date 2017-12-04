@@ -1,4 +1,4 @@
-describe Salary do
+describe TaxCode::Salary do
   subject { described_class.new gross: gross }
 
   describe 'new' do
