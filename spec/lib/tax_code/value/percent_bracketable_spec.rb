@@ -1,4 +1,4 @@
-describe Value::PercentBracketable do
+describe TaxCode::Value::PercentBracketable do
   subject do
     described_class.new TaxCode::Value::Basic.new(value),
       from: from,
