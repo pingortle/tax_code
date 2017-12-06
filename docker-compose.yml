@@ -1,16 +1,4 @@
 version: "3.0"
-# ENV BUNDLE_HOME /gems
-# ENV BUNDLE_PATH /gems
-# ENV BUNDLE_JOBS 4
-# ENV BUNDLE_RETRY 3
-# ENV DOCKERIZE_VERSION v0.3.0
-# ENV GEM_HOME /gems
-# ENV GEM_PATH /gems
-# ENV SECRET_KEY_BASE test123
-# ENV TERM xterm
-# ENV TERRAFORM_VERSION=0.10.0
-# ENV QT_VERSION 5.5.1
-# ENV PATH /gems/bin:/usr/local/Qt-$QT_VERSION:/bin$PATH
 
 services:
   _defaults: &DEFAULTS
