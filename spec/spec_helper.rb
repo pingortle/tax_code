@@ -1,7 +1,9 @@
 require 'simplecov'
+require 'coveralls'
 
 options = Proc.new { add_filter '/spec/' }
 
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start &options unless ENV['NO_COVERAGE']
 
 require_relative '../lib/tax_code.rb'
